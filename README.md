@@ -9,5 +9,20 @@ I need to document how to
 - how to import keepass
 - how to retrieve information from kepass
 
+current files
+
+-my_keepass
+
+-- function get_keys(title)
+when getpass entry is setup there is a unique title specified. this hast to be passed when calling get_pass this returns 
+
+      --- url
+
+      --- key
+
+-my_call_test.py
+This is a way store the URL and key used in API calls. 
+currently 4 site keys have been stored. looking to improve this
+
 other improvement will be adding entries in a programatic way
 More to come.. 
