@@ -13,6 +13,7 @@ def get_tmdb():
 def get_my_times():
     my_key,my_url = get_keys('ny_times')
     headers = f'{my_url}?api-key={my_key}'
+    print(headers)
     response = requests.get(headers)
     return (response)
 
