@@ -1,19 +1,20 @@
-import os   
 from dotenv import load_dotenv
-from pathlib import Path
+import os
+import pandas as pd
 
-# this is just to see the working directory that vs is using
-current_working_directory = Path.cwd()
-print(current_working_directory)
-
-dotenvpath = os.getenv('dotenv_path')
-print (dotenvpath)
-load_dotenv(dotenv_path=dotenvpath,verbose=True)
-
-# this reads the two fake key from the file. 
-database_url = os.getenv('DATABASE_URL')
-api_key = os.getenv('API_KEY')
-
-# this prints the fake values. replace with your real keys after you test.
-print(database_url)
-print(api_key)
+# Set environment variables from the .env in the local environment
+try:
+    load_dotenv()   
+    nyt_api_key = os.getenv("NYT_API_KEY")
+    tmdb_api_key = os.getenv("TMDB_API_KEY")
+    assert nyt_api_key is not None, 'NYT_API_KEY not found in .env file'
+    assert tmdb_api_key is not None, 'TMDB_API_KEY not found in .env file'
+    
+except Exception as e:
+    # Handle potential errors in loading .env or missing API keys
+    print(f'An error occurred: {e}')
+else:
+    print('All keys laoded correctly') 
+    
+# next I will want to verify the Keys work for each api provider
+# make a call to each and verify the status code of 200
